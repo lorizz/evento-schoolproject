@@ -1,0 +1,7 @@
+#left {
+    margin-left: -50px;
+}
+
+#right > i:first-child {
+    margin-right: 25px;
+}

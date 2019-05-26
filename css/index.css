@@ -1,0 +1,59 @@
+#intro {
+    background-image: url('../assets/background-intro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#intro-background {
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+#intro-inside {
+    width: 300px;
+    height: 150px;
+    position: absolute;
+    left: 50%;
+    margin-left: calc(-300px / 2);
+    text-align: center;
+    top: 50%;
+    margin-top: calc(-150px / 2);
+}
+
+#intro-inside > h1 {
+    color: white;
+}
+
+#intro-inside > small {
+    color: lightgray;
+}
+
+#intro-inside > .button-default {
+    margin-top: 25px;
+    position: relative;
+    left: 50%;
+    margin-left: calc(-150px / 2);
+}
+
+#info {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#info-inside {
+    text-align: center;
+}
+
+#info-inside > .row {
+    margin-top: 50px;
+}
+
+#info-inside p {
+    font-family: 'Raleway', sans-serif;
+}
+
+.link-box {
+    width: 200px;
+    position: relative;
+    left: 50%;
+    margin-left: calc(-200px / 2);
+}

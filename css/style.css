@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald|Raleway:400&display=swap');
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+small {
+    font-size: 24px;
+}
+
+h1 {
+    font-size: 64px;
+}
+
+.container-fluid {
+    margin: 0;
+    padding: 0;
+}
+
+.fullscreen {
+    height: 100vh;
+}
+
+.button-default {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 43px;
+    border: 2px solid white;
+    color: white;
+    font-size: 32px;
+}
+
+.button-default:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+}
+
+.navbar-default {
+    height: 60px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 24px;
+    color: white;
+    background: none;
+    position: fixed;
+}
+
+.navbar-default i:hover {
+    cursor: pointer;
+}
+
+.navbar-white {
+    height: 60px;
+    text-align: center;
+    line-height: 55px;
+    font-size: 24px;
+    color: black;
+    background-color: white;
+    position: fixed;
+    border-bottom: 1px solid black;
+}
+
+.navbar-white i:hover {
+    cursor: pointer;
+}
+
+.link-box {
+    color: black;
+    line-height: 50px;
+}
+
+.link-box:hover {
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+.link {
+    color: black;
+}
+
+.link:hover {
+    color: rgb(101, 150, 255);
+    cursor: pointer;
+}
+
+.medium {
+    width: 35%;
+}
+
+.centered {
+    position: relative;
+    left: 50%;
+    margin-left: calc(-35% / 2);
+}
+
