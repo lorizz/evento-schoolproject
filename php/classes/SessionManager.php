@@ -7,6 +7,7 @@ class SessionManager {
     }
 
     public static function destroySession() {
+		self::startSession();
         session_destroy();
     }
 }
