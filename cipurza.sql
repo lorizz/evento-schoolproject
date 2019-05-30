@@ -46,10 +46,10 @@ CREATE TABLE `categoria` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `commenta`
+-- Struttura della tabella `commenti`
 --
 
-CREATE TABLE `commenta` (
+CREATE TABLE `commenti` (
   `CodE` int(4) NOT NULL,
   `CodU` int(4) NOT NULL,
   `Contenuto` varchar(50) NOT NULL,
