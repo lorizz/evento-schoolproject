@@ -1,0 +1,35 @@
+A)elenco degli eventi già svolti, in ordine alfabetico di provincia
+
+SELECT evento.Data, evento.Titolo, luogo.Citta, luogo.CodL
+FROM evento, luogo
+WHERE evento.CodL = luogo.CodL
+AND evento.Data < TODAY
+ORDER BY luogo.CodL
+
+B)elencodei membri che non hanno mai inserito un commento 
+
+SELECT Nickname
+FROM utente
+WHERE CodU NOT IN (SELECT DISTINCT CodU FROM commenti)
+ORDER BY Nickname
+
+C)per ogni evento il voto medio ottenuto in ordine di categoria e titolo
+
+SELECT evento.Titolo, AVG(commenti.Voti) AS Rank
+FROM evento, commenti
+WHERE evento.CodE = commenti.CodE
+GROUP BY evento.CodE
+HAVING Rank > 0
+ORDER BY evento.CodC, evento.Titolo
+
+D)i dati dell'utente che ha registrato il maggior numero di eventi
+
+CREATE VIEW inserimenti AS
+SELECT evento.CodU AS Utente, COUNT(evento.CodE) AS Totale
+FROM evento
+GROUP BY evento.CodU
+
+SELECT utente.Nickname, utente.Email
+FROM inserimenti, utente
+WHERE inserimenti.CodU = utente.CodU
+AND inserimenti.Totale = (SELECT MAX(Totale) FROM inserimenti)

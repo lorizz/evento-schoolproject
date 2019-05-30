@@ -1,3 +1,4 @@
+<?php include 'php/classes/SessionManager.php'; include 'php/token.php'; SessionManager::startSession(); validateToken(); SessionManager::destroySession();?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,7 +9,7 @@
             <section class="fullscreen" id="intro">
                 <div class="fullscreen" id="intro-background">
                     <div id="intro-inside">
-                        <h1>Evento!</h1>
+                        <?php if(isset($_SESSION['nickname'])) { echo "<h1>Benvenuto " . $_SESSION['nickname'] . " ad Evento!</h1>"; } else { echo "<h1>Benvenuto ad Evento!</h1>"; }?>
                         <small>Perchè io non mento!</small><br>
                         <div class="button-default">Continua</div>
                     </div>
@@ -40,6 +41,7 @@
                             </p>
                         </div>
                     </div>
+                    <?php if(!isset($_SESSION['nickname'])) { ?>
                     <div class="row">
                         <div class="col">
                             <h2>Iscriviti ora!</h2>
@@ -52,18 +54,30 @@
                             <small class="link">Sei già registrato? Clicca qui per accedere!</small>
                         </div>
                     </div>
+                    <form class="medium centered" action="php/register.php" method="POST">
+                        <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="form-email" placeholder="Inserisci la tua email" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="form-password" placeholder="Inserisci la tua password" required>
+                        </div>
+                        <button type="submit" name="confirm" class="btn btn-primary">Submit</button>
+                    </form>
+                    <form class="medium centered" action="php/login.php" method="POST">
+                        <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" name="email" id="form-email" placeholder="Inserisci la tua email" required>
+                        </div>
+                        <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password" id="form-password" placeholder="Inserisci la tua password" required>
+                        </div>
+                        <button type="submit" name="confirm" class="btn btn-primary">Submit</button>
+                    </form>
+                    <?php } ?>
                 </div>
-                <form class="hidden medium centered" action="php/register.php" method="POST">
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" name="email" id="form-email" placeholder="Inserisci la tua email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="password">Password</label>
-                      <input type="password" class="form-control" name="password" id="form-password" placeholder="Inserisci la tua password" required>
-                    </div>
-                    <button type="submit" name="confirm" class="btn btn-primary">Submit</button>
-                </form>
             </section>
         </div>
         <!-- Optional JavaScript -->
@@ -94,23 +108,9 @@
             })
 
             function showRegister() {
-                $('form.hidden').show();
+                $('.hidden').show();
                 $('#info-inside').hide();
             }
-
-
-                /*$(window).scroll(function() {
-                    var scroll = $(window).scrollTop();
-                    if($(window).height() + scroll > $('#info-inside').offset().top) {
-                        $('#navbar').addClass('navbar-white');
-                        $('#navbar').removeClass('navbar-default');                        
-                    } else {
-                        $('#navbar').addClass('navbar-default');
-                        $('#navbar').removeClass('navbar-white');                        
-
-                    }
-                })
-            })*/
         </script>
     </body>
 </html>
